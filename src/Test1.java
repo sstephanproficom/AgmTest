@@ -10,7 +10,7 @@ public class Test1 extends TestCase {
   
   @Before
   public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "C:\\Users\\sstephan\\Downloads\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\temp\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.proficom.de/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
