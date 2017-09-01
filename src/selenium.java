@@ -8,9 +8,13 @@ import static org.junit.Assert.*;
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
 import java.io.File;
+import java.net.URL;
+
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
@@ -19,7 +23,10 @@ public class selenium {
     
     @Before
     public void setUp() throws Exception {
-        wd = new FirefoxDriver();
+        // wd = new FirefoxDriver();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setJavascriptEnabled(true);
+        WebDriver wd = new RemoteWebDriver(new URL("http://172.16.20.15:4444/wd/hub"), capabilities);
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
     

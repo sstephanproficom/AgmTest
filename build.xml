@@ -51,16 +51,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="selenium (1)">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="selenium" todir="${junit.output.dir}"/>
-            <jvmarg line="-ea"/>
-            <classpath refid="AgmTest.classpath"/>
-        </junit>
-    </target>
-    <target name="Test1 (1)">
+    <target name="Test1">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
