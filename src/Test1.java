@@ -3,6 +3,7 @@ import junit.framework.TestCase;
 import org.junit.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Test1 extends TestCase {
   private WebDriver driver;
@@ -13,15 +14,18 @@ public class Test1 extends TestCase {
     System.setProperty("webdriver.chrome.driver", "C:\\temp\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.proficom.de/";
+    driver.manage().window().setSize(new Dimension(1024,768));
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
   
   @Test
   public void test() throws Exception {
     driver.get(baseUrl + "/");
-    By expression = By.xpath("/html/body/div[1]/header/div/div/div[4]/div/nav/ul/li[3]/ul/li[2]/a");
-    WebElement link = driver.findElement(expression);
-    link.click();
+    
+    Actions action = new Actions(driver);
+    WebElement we = driver.findElement(By.xpath("//*[@id=\"nav\"]/ul/li[2]/a"));
+    we.click();
+    action.moveToElement(we).moveToElement(driver.findElement(By.xpath("//*[@id=\"nav\"]/ul/li[2]/div/ul/li[2]/a"))).click(); //.build().perform()
   }
   
   @After
