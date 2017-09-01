@@ -25,7 +25,7 @@ public class Test1 extends TestCase {
     Actions action = new Actions(driver);
     WebElement we = driver.findElement(By.xpath("//*[@id=\"nav\"]/ul/li[2]/a"));
     we.click();
-    action.moveToElement(we).moveToElement(driver.findElement(By.xpath("//*[@id=\"nav\"]/ul/li[2]/div/ul/li[2]/a"))).click(); //.build().perform()
+    action.moveToElement(we).moveToElement(driver.findElement(By.xpath("//*[@id=\"nav\"]/ul/li[2]/div/ul/li[2]/a"))).click();
   }
   
   @After
